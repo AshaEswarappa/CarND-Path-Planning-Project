@@ -15,16 +15,17 @@ using nlohmann::json;
 
 using namespace std;
 
-/*start the car in center lane: 0 - left, 1- center, 2 -right */
+/*start the car in center lane*/
+//lane: 0 - left, 1- center, 2 -right */
 int lane = 1;
 
-/*set the reference velocit of the target*/
+/*set the reference velocity*/
 double ref_vel = 0; //mph
 
 /*set the lane width */
 int lanewidth = 4;        
 
-/*set the offsert for increase or decrease of the velocity */
+/*set the offset for increase or decrease of the velocity */
 float offset = 0.224; //to meet the specification of requiremnet of project related to acceleration or jerk */
 
 /*Maximu speed of the lane */
@@ -119,12 +120,12 @@ int main()
           }
 
           /*declaration of other car lane */
-          int car_lane = -1;
+          int car_lane = -1; 
 
-          /* acceleration or deceleration consition information based on sensor fusion data */
+          /* acceleration or deceleration offset information based on sensor fusion data */
           double speed_diff = 0;
 
-          /* Boolean Signals to indicate if there is car in the front/left or ight */
+          /* Boolean Signals to indicate if there is car in the front/left or right */ 
           bool car_left = false;
 
           bool car_right = false;
@@ -200,18 +201,18 @@ int main()
               if (!car_left && lane > 0)
               {
                
-                lane--; // decrement the curret lane after lane change left
+                lane--; // decrement the curret lane value by 1 after lane change left
 
               } 
               else if (!car_right && lane != 2)
               {
                 // if there is no car right and its not the right lane
 
-                lane++; // increment the current lane after lane change right
+                lane++; // increment the current lane value by 1 after lane change right
               } 
               else 
               {
-                speed_diff -=  offset; // set the offset value for decreasing velocity to stay in same lane
+                speed_diff -=  offset; // set the offset value for decreasing velocity in order to stay in same lane and avoid collision
               }
 
             }
