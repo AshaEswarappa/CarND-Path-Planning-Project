@@ -11,7 +11,7 @@ As learnt during the course, the path planning requires the information from dif
 
 A brief overview of how components in each layer works, together to build an autonomous vehicle is described in the next section.
 
-Motion Control: Responsible for moving the car and following a reference trajectory as closely as possible my meeting the speed and lateral distance constraints
+Motion Control: Responsible for moving the car and following a reference trajectory as closely as possible by meeting the speed and lateral distance constraints
 
 Sensor Fusion: If the vehicle has more than one sensor like camera, LIDAR or radar, then those outputs are merged in this component to get the perception details
 
